@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ТОП-5 игроков по убийствам</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            color: #e53935;
+            margin-bottom: 30px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 60%;
+            background-color: #1e1e1e;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 12px 16px;
+            font-size: 16px;
+        }
+        th {
+            background-color: #2b2b2b;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        .rank-Worm { color: #888; font-weight: bold; }
+        .rank-Thrall { color: #76a9fa; font-weight: bold; }
+        .rank-Nobody { color: #999; font-weight: bold; }
+        .rank-Servant { color: #ccc; font-weight: bold; }
+        .rank-Mercenary { color: #fff; font-weight: bold; }
+        .rank-Warlord { color: #f4aa42; font-weight: bold; }
+        .rank-Champion { color: #ffd700; font-weight: bold; }
+        .rank-Monster { color: #e53935; font-weight: bold; }
+        .rank-Godmaster { color: #ff00ff; font-weight: bold; text-shadow: 0 0 8px #ff00ff; }
+        p {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+    
+        .rank-Godmaster {
+            color: #ff00ff;
+            position: relative;
+            font-weight: bold;
+            text-shadow: 0 0 5px red, 0 0 10px darkred, 0 0 2px #ff00ff;
+            filter: drop-shadow(0 0 2px red) blur(0.6px);
+        }
+
+        .rank-Godmaster .blood-drip {
+            position: absolute;
+            width: 4px;
+            height: 12px;
+            background: darkred;
+            border-radius: 50%;
+            animation: dripFall 2s infinite ease-in;
+        }
+
+        .rank-Godmaster .drip1 {
+            left: 45%;
+            animation-delay: 0s;
+        }
+
+        .rank-Godmaster .drip2 {
+            left: 55%;
+            animation-delay: 1s;
+        }
+
+        @keyframes dripFall {
+            0% { transform: translateY(0); opacity: 0; }
+            40% { opacity: 1; }
+            100% { transform: translateY(14px); opacity: 0; }
+        }
+
+        .bloodmaster-row {
+            animation: pulseblood 1.8s infinite;
+            background-color: #1a001a;
+        }
+
+        @keyframes pulseblood {
+            0%   { box-shadow: 0 0 4px red; }
+            50%  { box-shadow: 0 0 12px #ff0044; }
+            100% { box-shadow: 0 0 4px red; }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>ТОП-5 ИГРОКОВ ПО УБИЙСТВАМ</h1>
+    <table>
+        <tr><th>Место</th><th>Игрок</th><th>Убийства</th><th>Ранг</th></tr>
+        <tr class='bloodmaster-row'><td>1</td><td>King Lich</td><td>20000</td><td class='rank-Godmaster'>GODMASTER<span class='blood-drip drip1'></span><span class='blood-drip drip2'></span></td></tr>
+<tr><td>2</td><td>F</td><td>13543</td><td class='rank-Godmaster'>GODMASTER</td></tr>
+<tr><td>3</td><td>3563</td><td>6732</td><td class='rank-Monster'>MONSTER</td></tr>
+<tr><td>4</td><td>LordGhost</td><td>1500</td><td class='rank-Warlord'>WARLORD</td></tr>
+<tr><td>5</td><td>BloodSeeker</td><td>320</td><td class='rank-Servant'>SERVANT</td></tr>
+
+    </table>
+    <p>Обновляется автоматически</p>
+</body>
+</html>
