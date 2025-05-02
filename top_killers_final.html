@@ -4,118 +4,47 @@
   <meta charset='UTF-8'>
   <title>Top Killers</title>
   <style>
-    body {
-      background-color: #111;
-      color: #eee;
-      font-family: "Roboto Condensed", Impact, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #f44336;
-      text-shadow: 2px 2px #000;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      background-color: #222;
-      box-shadow: 0 0 20px #000;
-    }
-    th, td {
-      padding: 12px;
-      text-align: center;
-      border: 1px solid #555;
-    }
-    th {
-      background-color: #333;
-      color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-      background-color: #1a1a1a;
-    }
-    tr:nth-child(odd) {
-      background-color: #2a2a2a;
-    }
-    td:nth-child(4) {
-      font-weight: bold;
-    }
+    body { background-color: #111; color: #eee; font-family: "Roboto Condensed", Impact, sans-serif; padding: 20px; }
+    h1 { text-align: center; color: #f44336; text-shadow: 2px 2px #000; }
+    table { width: 100%; border-collapse: collapse; margin-top: 30px; background-color: #222; box-shadow: 0 0 20px #000; }
+    th, td { padding: 12px; text-align: center; border: 1px solid #555; }
+    th { background-color: #333; color: #f2f2f2; }
+    tr:nth-child(even) { background-color: #1a1a1a; }
+    tr:nth-child(odd) { background-color: #2a2a2a; }
+    td:nth-child(4) { font-weight: bold; }
     .rank-Godmaster { color: #ff00ff; text-shadow: 0 0 4px #ff00ff; }
     .rank-Monster { color: #ff4444; }
-    .rank-Champion { color: #ffaa00; }
-    .rank-Warlord { color: #33ccff; }
+    .burning-title { color: #c59eff; font-weight: 900; text-transform: uppercase;
+      text-shadow: 0 0 4px #b472ff, 0 0 8px #a84dff, 0 0 16px #ca9eff, 0 0 24px #e0cfff;
+      animation: syncedGlow 2s infinite alternate; }
+    @keyframes syncedGlow { 0% { text-shadow: 0 0 4px #b472ff, 0 0 8px #a84dff; } 100% { text-shadow: 0 0 12px #f2e6ff; } }
+    .admin-avatar-block { margin-top: 60px; text-align: center; }
+    .admin-avatar-block a img { width: 128px; height: 128px; border-radius: 10px; border: 2px solid #a84dff;
+      box-shadow: 0 0 20px #c59eff; animation: avatarBurnStyled 1.5s infinite alternate; transition: transform 0.3s ease; }
+    .admin-avatar-block a img:hover { transform: scale(1.1); }
+    @keyframes avatarBurnStyled { 0% { box-shadow: 0 0 5px #6e00aa; } 100% { box-shadow: 0 0 20px #9a00ff; } }
+    .admin-label { margin-top: 10px; font-size: 20px; letter-spacing: 2px; font-weight: bold;
+      color: #c59eff; text-shadow: 0 0 4px #b472ff, 0 0 8px #a84dff; animation: syncedGlow 2s infinite alternate; }
     p { text-align: right; font-size: 0.8em; color: #888; }
-    .lang-select {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-    .lang-select button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    .lang-select img {
-      width: 24px;
-      vertical-align: middle;
-    }
-    .lang-select span {
-      color: #ccc;
-      font-size: 14px;
-    }
   </style>
-  <script>
-    const translations = {
-      en: {
-        title: "Top Killers",
-        name: "Name",
-        kills: "Kills",
-        rank: "Rank",
-        updated: "Updated",
-      },
-      ua: {
-        title: "Топ Вбивці",
-        name: "Ім'я",
-        kills: "Вбивства",
-        rank: "Ранг",
-        updated: "Оновлено",
-      },
-
-    };
-
-    function setLang(lang) {
-      document.querySelector("h1").textContent = translations[lang].title;
-      const headers = document.querySelectorAll("th");
-      headers[1].textContent = translations[lang].name;
-      headers[2].textContent = translations[lang].kills;
-      headers[3].textContent = translations[lang].rank;
-      document.getElementById("update-time").textContent = translations[lang].updated + ": " + window.updateTime;
-    }
-
-    window.onload = function() {
-      window.updateTime = document.getElementById("update-time").textContent.split(": ")[1];
-      setLang("en");
-    };
-  </script>
 </head>
 <body>
-  <div class='lang-select'>
-    <button onclick='setLang("ua")' title='Українська'><img src='https://flagcdn.com/w40/ua.png' alt='UA'></button>
-    <button onclick='setLang("en")' title='English'><img src='https://flagcdn.com/w40/gb.png' alt='EN'></button>
-    
-  </div>
-
   <h1>Top Killers</h1>
   <table>
     <tr><th>#</th><th>Name</th><th>Kills</th><th>Rank</th></tr>
     <tr><td>1</td><td>F</td><td>17000</td><td class='rank-Godmaster'>GODMASTER</td></tr>
 <tr><td>2</td><td>King Lich</td><td>14726</td><td class='rank-Godmaster'>Godmaster</td></tr>
 <tr><td>3</td><td>LordGhost</td><td>8888</td><td class='rank-Monster'>Monster</td></tr>
-<tr><td>4</td><td>frostmourne</td><td>7008</td><td class='rank-Monster'>Monster</td></tr>
+<tr><td>4</td><td>frostmourne</td><td>7010</td><td class='rank-Monster'>Monster</td></tr>
 <tr><td>5</td><td>DarkBlade</td><td>4444</td><td class='rank-Champion'>Champion</td></tr>
 
   </table>
-  <p id='update-time'>Updated: 2025-05-03T00:22:18.421587</p>
+  <div class="admin-avatar-block">
+    <a href="https://steamcommunity.com/profiles/76561198303179793" target="_blank">
+      <img src="avatar.PNG" alt="Admin Avatar">
+    </a>
+    <div class="admin-label">ADMIN</div>
+  </div>
+  <p id='update-time'>Updated: 2025-05-03T00:41:50.947493</p>
 </body>
 </html>
