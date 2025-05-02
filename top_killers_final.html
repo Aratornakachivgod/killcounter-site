@@ -1,17 +1,127 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Top Killers</title></head>
-<body>
-<h1>Top Killers</h1>
-<table border="1">
-<tr><th>#</th><th>Name</th><th>Kills</th><th>Rank</th></tr>
-<tr><td>1</td><td>F</td><td>17000</td><td style='color:magenta;'>GODMASTER</td></tr>
-<tr><td>2</td><td>King Lich</td><td>14710</td><td>Godmaster</td></tr>
-<tr><td>3</td><td>LordGhost</td><td>8888</td><td>Monster</td></tr>
-<tr><td>4</td><td>frostmourne</td><td>7002</td><td>Monster</td></tr>
-<tr><td>5</td><td>DarkBlade</td><td>4444</td><td>Champion</td></tr>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Top Killers</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: "Roboto Condensed", Impact, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #f44336;
+      text-shadow: 2px 2px #000;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #222;
+      box-shadow: 0 0 20px #000;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #555;
+    }
+    th {
+      background-color: #333;
+      color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+    tr:nth-child(odd) {
+      background-color: #2a2a2a;
+    }
+    td:nth-child(4) {
+      font-weight: bold;
+    }
+    .rank-Godmaster { color: #ff00ff; text-shadow: 0 0 4px #ff00ff; }
+    .rank-Monster { color: #ff4444; }
+    .rank-Champion { color: #ffaa00; }
+    .rank-Warlord { color: #33ccff; }
+    p { text-align: right; font-size: 0.8em; color: #888; }
+    .lang-select {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-select button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .lang-select img {
+      width: 24px;
+      vertical-align: middle;
+    }
+    .lang-select span {
+      color: #ccc;
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    const translations = {
+      en: {
+        title: "Top Killers",
+        name: "Name",
+        kills: "Kills",
+        rank: "Rank",
+        updated: "Updated",
+      },
+      ua: {
+        title: "Топ Вбивці",
+        name: "Ім'я",
+        kills: "Вбивства",
+        rank: "Ранг",
+        updated: "Оновлено",
+      },
+      ru: {
+        title: "Топ Убийцы",
+        name: "Имя",
+        kills: "Убийства",
+        rank: "Ранг",
+        updated: "Обновлено",
+      }
+    };
 
-</table>
-<p>Updated: 2025-05-02T23:01:51.718041</p>
+    function setLang(lang) {
+      document.querySelector("h1").textContent = translations[lang].title;
+      const headers = document.querySelectorAll("th");
+      headers[1].textContent = translations[lang].name;
+      headers[2].textContent = translations[lang].kills;
+      headers[3].textContent = translations[lang].rank;
+      document.getElementById("update-time").textContent = translations[lang].updated + ": " + window.updateTime;
+    }
+
+    window.onload = function() {
+      window.updateTime = document.getElementById("update-time").textContent.split(": ")[1];
+      setLang("en");
+    };
+  </script>
+</head>
+<body>
+  <div class='lang-select'>
+    <button onclick='setLang("ua")' title='Українська'><img src='https://flagcdn.com/w40/ua.png' alt='UA'></button>
+    <button onclick='setLang("en")' title='English'><img src='https://flagcdn.com/w40/gb.png' alt='EN'></button>
+    <button onclick='setLang("ru")' title='Русский'><span>Русский</span></button>
+  </div>
+
+  <h1>Top Killers</h1>
+  <table>
+    <tr><th>#</th><th>Name</th><th>Kills</th><th>Rank</th></tr>
+    <tr><td>1</td><td>F</td><td>17000</td><td class='rank-Godmaster'>GODMASTER</td></tr>
+<tr><td>2</td><td>King Lich</td><td>14716</td><td class='rank-Godmaster'>Godmaster</td></tr>
+<tr><td>3</td><td>LordGhost</td><td>8888</td><td class='rank-Monster'>Monster</td></tr>
+<tr><td>4</td><td>frostmourne</td><td>7002</td><td class='rank-Monster'>Monster</td></tr>
+<tr><td>5</td><td>DarkBlade</td><td>4444</td><td class='rank-Champion'>Champion</td></tr>
+
+  </table>
+  <p id='update-time'>Updated: 2025-05-02T23:14:16.433093</p>
 </body>
 </html>
